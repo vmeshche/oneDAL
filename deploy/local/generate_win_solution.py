@@ -91,7 +91,7 @@ def get_example_name(relative_example_path):
 def write_proj(config, example_name, proj, proj_filters, proj_user):
     proj_dir = os.path.join(config.output_dir, 'vcproj', example_name)
     os.makedirs(proj_dir, exist_ok=True)
-    print(f'Write {example_name}.vcxproj')
+    print(f'Write {example_name}.vcxproj'.format(example_name))
     if not config.test:
         write_file(proj_dir, example_name + '.vcxproj', proj)
         write_file(proj_dir, example_name + '.vcxproj.filters', proj_filters)
@@ -118,7 +118,7 @@ def generate_sln(config, examples_info):
         project_decl = all_project_decls_str,
         platform_decl = all_platform_decl_str
     )
-    print(f'Write {config.solution_name}')
+    print(f'Write {}'.format(config.solution_name))
     if not config.test:
         write_file(config.output_dir, config.solution_name, solution)
 
